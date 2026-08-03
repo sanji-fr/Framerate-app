@@ -4,12 +4,10 @@ workflows:
     environment:
       flutter: stable
     scripts:
-      - name: Ensure Android platform exists
+      - name: Generate Android if missing
         script: |
           if [ ! -d "android" ]; then
             flutter create . --org com.framerate.app --platforms=android
-          else
-            flutter create . --org com.framerate.app --platforms=android --overwrite
           fi
       - name: Install dependencies
         script: |
