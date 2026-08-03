@@ -13,7 +13,7 @@ workflows:
           fi
       - name: Install dependencies
         script: |
-          flutter packages get
+          flutter pub get
       - name: Build APK
         script: |
           flutter build apk --debug
