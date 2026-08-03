@@ -1,0 +1,24 @@
+workflows:
+  default-workflow:
+    name: Default Workflow
+    environment:
+      flutter: stable
+    scripts:
+      - name: Generate Native Android Folder
+        script: |
+          flutter create . --org com.framerate.app --platforms=android
+      - name: Install dependencies
+        script: |
+          flutter packages get
+    publishing:
+      email:
+        recipients:
+          - your-email@gmail.com
+    build:
+      flutter:
+        version: stable
+        build_format: apk
+        mode: debug
+        args: "--debug"
+    artifacts:
+      - build/**/outputs/**/*.apk
