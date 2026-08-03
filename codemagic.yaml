@@ -4,9 +4,6 @@ workflows:
     environment:
       flutter: stable
     scripts:
-      - name: Generate Native Android Folder
-        script: |
-          flutter create . --org com.framerate.app --platforms=android
       - name: Install dependencies
         script: |
           flutter packages get
