@@ -1,25 +1,22 @@
-workflows:
-  default-workflow:
-    name: Default Workflow
-    environment:
-      flutter: stable
-    scripts:
-      - name: Generate Native Android Folder
-        script: |
-          flutter create . --org com.framerate.app --platforms=android
-      - name: Install dependencies
-        script: |
-          flutter packages get
-    publishing:
-      email:
-        recipients:
-          - your-email@gmail.com
-    build:
-      flutter:
-        version: stable
-        build_format: apk
-        mode: debug
-        args: "--debug"
-    artifacts:
-      - build/**/outputs/**/*.apk
+name: framerate_app
+description: "A new Flutter project."
+publish_to: 'none'
 
+version: 1.0.0+1
+
+environment:
+  sdk: '^3.12.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  file_picker: ^8.0.0
+  shared_preferences: ^2.2.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
