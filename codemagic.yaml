@@ -10,15 +10,8 @@ workflows:
       - name: Install dependencies
         script: |
           flutter packages get
-    publishing:
-      email:
-        recipients:
-          - your-email@gmail.com
-    build:
-      flutter:
-        version: stable
-        build_format: apk
-        mode: debug
-        args: "--debug"
+      - name: Build APK
+        script: |
+          flutter build apk --debug
     artifacts:
       - build/**/outputs/**/*.apk
